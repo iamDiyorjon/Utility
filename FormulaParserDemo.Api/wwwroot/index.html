@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula Parser Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧮 Formula Parser Demo</h1>
+            <p>Parse user formulas and convert them to PostgreSQL expressions</p>
+        </header>
+
+        <div class="content">
+            <!-- Step 1: Table Selection -->
+            <section class="card">
+                <h2>Step 1: Select Table</h2>
+                <div class="form-group">
+                    <label for="tableSelect">Choose a table:</label>
+                    <select id="tableSelect" class="form-control">
+                        <option value="">-- Select Table --</option>
+                    </select>
+                    <button onclick="loadColumns()" class="btn btn-secondary">Load Columns</button>
+                </div>
+                <div id="columnsDisplay" class="columns-display" style="display:none;">
+                    <h4>Available Columns:</h4>
+                    <div id="columnsList" class="columns-list"></div>
+                </div>
+            </section>
+
+            <!-- Step 2: Formula Input -->
+            <section class="card">
+                <h2>Step 2: Enter Formula</h2>
+                <div class="form-group">
+                    <label for="columnName">New Column Name:</label>
+                    <input type="text" id="columnName" class="form-control" placeholder="e.g., total_revenue">
+                </div>
+                <div class="form-group">
+                    <label for="formulaInput">Formula:</label>
+                    <textarea id="formulaInput" class="form-control formula-input" rows="4"
+                              placeholder="e.g., (product_sales + service_sales) - operating_cost"></textarea>
+                    <small>
+                        Supported: +, -, *, /, (), IF(condition, true, false), SUM(), AVG(), etc.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="dataType">Data Type (optional):</label>
+                    <select id="dataType" class="form-control">
+                        <option value="">Auto-detect</option>
+                        <option value="NUMERIC">NUMERIC</option>
+                        <option value="INTEGER">INTEGER</option>
+                        <option value="TEXT">TEXT</option>
+                        <option value="BOOLEAN">BOOLEAN</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button onclick="validateFormula()" class="btn btn-info">Validate</button>
+                    <button onclick="loadExamples()" class="btn btn-secondary">Show Examples</button>
+                </div>
+            </section>
+
+            <!-- Step 3: Validation Results -->
+            <section class="card" id="validationSection" style="display:none;">
+                <h2>Validation Results</h2>
+                <div id="validationResults"></div>
+            </section>
+
+            <!-- Step 4: Preview Results -->
+            <section class="card">
+                <h2>Step 3: Preview Results</h2>
+                <button onclick="previewFormula()" class="btn btn-primary">Generate Preview</button>
+                <div id="previewSection" style="display:none; margin-top: 20px;">
+                    <div id="previewStats" class="stats-grid"></div>
+                    <div id="previewTable" class="table-container"></div>
+                    <div id="previewSql" class="sql-display"></div>
+                </div>
+            </section>
+
+            <!-- Step 5: Confirm & Apply -->
+            <section class="card" id="confirmSection" style="display:none;">
+                <h2>Step 4: Confirm & Apply</h2>
+                <div class="warning-box">
+                    ⚠️ This will create a new computed column in the database. This action cannot be undone through this interface.
+                </div>
+                <div class="button-group">
+                    <button onclick="applyFormula()" class="btn btn-success">✓ Confirm & Apply</button>
+                    <button onclick="cancelApply()" class="btn btn-danger">✗ Cancel</button>
+                </div>
+                <div id="applyResults" style="margin-top: 20px;"></div>
+            </section>
+
+            <!-- Examples Modal -->
+            <div id="examplesModal" class="modal" style="display:none;">
+                <div class="modal-content">
+                    <span class="close" onclick="closeExamples()">&times;</span>
+                    <h2>Formula Examples</h2>
+                    <div id="examplesContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Built with .NET 8, ANTLR4, and PostgreSQL</p>
+            <p><a href="/swagger" target="_blank">View API Documentation</a></p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
