@@ -27,8 +27,8 @@ Before you begin, verify you have:
 **Option A: Quick Setup (Recommended)**
 
 ```bash
-# Navigate to project directory
-cd D:\MyRepositories\Utility
+# Navigate to project directory (replace with your path)
+cd /path/to/formula-parser-demo
 
 # Create database
 psql -U postgres -c "CREATE DATABASE formulademo;"

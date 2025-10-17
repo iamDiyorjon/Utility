@@ -26,8 +26,8 @@ System creates: A PostgreSQL computed column that auto-calculates profit
 ### Setup Commands
 
 ```bash
-# 1. Navigate to project
-cd D:\MyRepositories\Utility
+# 1. Navigate to project (replace with your path)
+cd /path/to/formula-parser-demo
 
 # 2. Create database
 psql -U postgres -c "CREATE DATABASE formulademo;"
@@ -141,7 +141,7 @@ IF(product_sales > AVG(product_sales), "Above", "Below")
 ## 🔧 Project Structure
 
 ```
-D:\MyRepositories\Utility\
+formula-parser-demo/
 │
 ├── 📂 FormulaParserDemo.Api/        Main application
 │   ├── ANTLR/                        Grammar definition
@@ -450,8 +450,6 @@ START_HERE.md              ← You are here (overview & navigation)
 ---
 
 **🚀 Ready to parse some formulas? Start with QUICK_START.md!**
-
-**Location**: `D:\MyRepositories\Utility\`
 
 **Run Command**: `cd FormulaParserDemo.Api && dotnet run`
 

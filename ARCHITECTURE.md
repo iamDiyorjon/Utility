@@ -8,7 +8,7 @@ This document explains the technical architecture of the Formula Parser Demo app
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                         USER                                 │
+│                         USER                                │
 └──────────────────┬──────────────────────────────────────────┘
                    │
         ┌──────────┴─────────┐

@@ -1,13 +1,9 @@
 # Formula Parser Demo - Complete Index
 
-**Project Location**: `D:\MyRepositories\Utility\`
-
----
-
 ## 📁 Directory Structure
 
 ```
-D:\MyRepositories\Utility\
+formula-parser-demo/
 │
 ├── 📂 FormulaParserDemo.Api/           # Main .NET 8 Web API Project
 │   │
@@ -397,7 +393,5 @@ Based on this index:
 **This index provides complete navigation for the Formula Parser Demo project.**
 
 **Start Here**: [START_HERE.md](START_HERE.md)
-
-**Project Root**: `D:\MyRepositories\Utility\`
 
 **Run Command**: `cd FormulaParserDemo.Api && dotnet run`

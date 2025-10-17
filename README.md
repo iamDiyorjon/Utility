@@ -72,7 +72,9 @@ A comprehensive .NET 8 Web API application that parses user-defined formulas and
 ### 1. Clone or Navigate to the Project
 
 ```bash
-cd D:\MyRepositories\Utility
+# Clone the repository (or navigate to where you downloaded it)
+git clone <repository-url>
+cd formula-parser-demo
 ```
 
 ### 2. Set Up PostgreSQL Database

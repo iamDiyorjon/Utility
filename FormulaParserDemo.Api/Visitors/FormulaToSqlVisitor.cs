@@ -39,6 +39,19 @@ public class FormulaToSqlVisitor : FormulaBaseVisitor<string>
         return $"({left} {op} {right})";
     }
 
+    // String concatenation (||)
+    public override string VisitConcatenationExpression([NotNull] FormulaParser.ConcatenationExpressionContext context)
+    {
+        var left = Visit(context.expr(0));
+        var right = Visit(context.expr(1));
+        var op = context.op.Text;
+
+        // Mark as returning TEXT
+        _metadata.DetectedDataType = "TEXT";
+
+        return $"({left} {op} {right})";
+    }
+
     // Type 4: Comparison operations (>, <, >=, <=, =, !=)
     public override string VisitComparisonExpression([NotNull] FormulaParser.ComparisonExpressionContext context)
     {

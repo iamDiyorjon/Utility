@@ -21,6 +21,7 @@ expr
     | aggregateFunction '(' expr ')'                           # AggregateExpression
     | expr op=('*' | '/' | '%') expr                           # MultiplicativeExpression
     | expr op=('+' | '-') expr                                 # AdditiveExpression
+    | expr op='||' expr                                        # ConcatenationExpression
     | expr comparisonOp expr                                    # ComparisonExpression
     | '(' expr ')'                                             # ParenthesizedExpression
     | NUMBER                                                    # NumberLiteral

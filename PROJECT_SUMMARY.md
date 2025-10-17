@@ -55,7 +55,7 @@ A complete, production-ready .NET 8 application that implements the **Utility Fu
 ## 📂 Project Structure
 
 ```
-D:\MyRepositories\Utility\
+formula-parser-demo/
 │
 ├── FormulaParserDemo.Api/              # Main API Project
 │   │
@@ -543,8 +543,6 @@ We have successfully built a complete, production-ready Formula Parser Demo that
 **The project is ready to run, test, and extend!**
 
 ---
-
-**Project Location**: `D:\MyRepositories\Utility\`
 
 **Main Entry Point**: `FormulaParserDemo.Api\Program.cs`
 
